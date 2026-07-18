@@ -14,13 +14,19 @@
 
 ## Landing Page
 
-⬜
+✅ Complete
+
+---
+
+## Application Shell
+
+✅ Complete
 
 ---
 
 ## Notes
 
-⬜
+✅ Complete
 
 ---
 
@@ -44,7 +50,7 @@
 
 ## Dashboard
 
-⬜
+✅ Complete
 
 ---
 

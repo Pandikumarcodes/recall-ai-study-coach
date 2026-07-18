@@ -25,6 +25,7 @@ This document tracks reusable UI components.
 - PrimaryButton
 - SecondaryButton
 - IconButton
+- Button
 
 ---
 
@@ -90,4 +91,9 @@ This document tracks reusable UI components.
 
 ## Future Components
 
-(Add new reusable components here.)
+- BrandMark
+- LandingNavbar
+- LandingHero
+- LandingFeatures
+- LandingHowItWorks
+- LandingFooter
