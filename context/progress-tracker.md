@@ -32,7 +32,8 @@
 
 ## AI
 
-⬜
+✅ Processing UI
+✅ Study Workspace
 
 ---
 
@@ -45,6 +46,12 @@
 ## Knowledge Map
 
 ⬜
+
+---
+
+## Revision Plan
+
+✅ Complete
 
 ---
 

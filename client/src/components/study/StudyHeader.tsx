@@ -1,0 +1,25 @@
+import { Clock3, Sparkles } from "lucide-react";
+
+export function StudyHeader() {
+  return (
+    <header className="rounded-2xl border border-border bg-surface p-6 shadow-card sm:p-8">
+      <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-start">
+        <div>
+          <p className="text-sm font-bold text-primary">AI study workspace</p>
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl">
+            Electric fields and potential
+          </h1>
+          <p className="mt-3 inline-flex items-center gap-2 text-sm text-text-secondary">
+            <Clock3 size={16} /> Estimated reading time: 12 minutes
+          </p>
+        </div>
+        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-success/10 px-3 py-1.5 text-sm font-bold text-success">
+          <Sparkles size={16} /> 84% Recall Score
+        </span>
+      </div>
+      <p className="mt-6 border-t border-border pt-4 text-xs text-text-secondary">
+        Last generated today at 10:42 AM
+      </p>
+    </header>
+  );
+}

@@ -5,6 +5,7 @@ import { NoteCard, type NoteItem } from "../components/notes/NoteCard";
 import { NotesUploadArea } from "../components/notes/NotesUploadArea";
 import { EmptyState } from "../components/feedback/EmptyState";
 import { PageContainer } from "../components/layout/PageContainer";
+import { Button } from "../components/ui/Button";
 
 const initialNotes: NoteItem[] = [
   {
@@ -55,6 +56,9 @@ export function NotesPage() {
             Upload PDFs, Word documents, or text files. Recall will prepare them
             for your next study session.
           </p>
+          <Button className="mt-5" href="/app/processing">
+            Generate Study Materials
+          </Button>
         </header>
         <NotesUploadArea onUpload={addNote} />
         <section

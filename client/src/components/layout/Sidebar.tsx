@@ -10,11 +10,11 @@ import { BrandMark } from "../BrandMark";
 import { NavItem } from "./NavItem";
 
 const navigationItems = [
-  { icon: LayoutDashboard, label: "Dashboard", to: "/dashboard" },
-  { icon: FileText, label: "Notes", to: "/notes" },
-  { icon: BrainCircuit, label: "Quiz", to: "/dashboard" },
-  { icon: Network, label: "Knowledge map", to: "/dashboard" },
-  { icon: CalendarDays, label: "Revision plan", to: "/dashboard" },
+  { icon: LayoutDashboard, label: "Dashboard", to: "/app/dashboard" },
+  { icon: FileText, label: "Notes", to: "/app/notes" },
+  { icon: BrainCircuit, label: "Quiz", to: "/app/quiz" },
+  { icon: Network, label: "Knowledge map", to: "/app/knowledge-map" },
+  { icon: CalendarDays, label: "Revision plan", to: "/app/revision-plan" },
 ];
 
 interface SidebarProps {
@@ -43,7 +43,7 @@ export function Sidebar({ onNavigate }: SidebarProps) {
       </nav>
 
       <div className="mt-auto border-t border-border pt-4">
-        <NavItem icon={Settings} label="Settings" to="/dashboard" />
+        <NavItem icon={Settings} label="Settings" to="/app/settings" />
         <div className="mt-4 flex items-center gap-3 rounded-xl bg-surface-muted p-3">
           <span
             aria-hidden="true"
