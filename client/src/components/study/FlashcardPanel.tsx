@@ -1,23 +1,14 @@
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 import { useState } from "react";
-const cards = [
-  {
-    front: "What does electric potential measure?",
-    back: "The potential energy per unit charge at a point in an electric field.",
-  },
-  {
-    front: "How does field strength change with distance?",
-    back: "It decreases with the square of the distance from a point charge.",
-  },
-];
+import { flashcards } from "../../mocks/flashcards";
 export function FlashcardPanel() {
   const [index, setIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
-  const card = cards[index];
+  const card = flashcards[index];
   const changeCard = (direction: number) => {
     setFlipped(false);
-    setIndex((current) => (current + direction + cards.length) % cards.length);
+    setIndex((current) => (current + direction + flashcards.length) % flashcards.length);
   };
   return (
     <section className="mx-auto max-w-2xl">
@@ -27,7 +18,7 @@ export function FlashcardPanel() {
         transition={{ duration: 0.45 }}
       >
         <p className="text-sm font-bold text-primary">
-          Flashcard {index + 1} of {cards.length}
+          Flashcard {index + 1} of {flashcards.length}
         </p>
         <div className="mt-12">
           <p className="text-sm text-text-secondary">

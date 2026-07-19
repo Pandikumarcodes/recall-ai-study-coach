@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { CheckCircle2, FileUp, UploadCloud } from "lucide-react";
 import { Button } from "../ui/Button";
 
-type UploadState = "idle" | "dragging" | "success" | "error";
+type UploadState = "idle" | "dragging" | "uploading" | "success" | "error";
 interface NotesUploadAreaProps {
   onUpload: (file: File) => void;
 }
@@ -13,6 +13,7 @@ const allowedTypes = [
   "text/plain",
 ];
 const maxFileSize = 10 * 1024 * 1024;
+const progressClasses = ["w-0", "w-1/5", "w-2/5", "w-3/5", "w-4/5", "w-full"];
 
 export function NotesUploadArea({ onUpload }: NotesUploadAreaProps) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,6 +21,7 @@ export function NotesUploadArea({ onUpload }: NotesUploadAreaProps) {
   const [message, setMessage] = useState(
     "Drag and drop a file here, or choose one from your device.",
   );
+  const [progress, setProgress] = useState(0);
   const handleFile = (file?: File) => {
     if (!file) return;
     if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
@@ -27,9 +29,19 @@ export function NotesUploadArea({ onUpload }: NotesUploadAreaProps) {
       setMessage("Choose a PDF, DOCX, or TXT file no larger than 10 MB.");
       return;
     }
-    setState("success");
-    setMessage(`${file.name} is ready for AI processing.`);
-    onUpload(file);
+    setState("uploading");
+    setProgress(0);
+    setMessage(`Uploading ${file.name}…`);
+    let currentProgress = 0;
+    const interval = window.setInterval(() => {
+      currentProgress += 20;
+      setProgress(currentProgress);
+      if (currentProgress < 100) return;
+      window.clearInterval(interval);
+      setState("success");
+      setMessage(`${file.name} is ready for AI processing.`);
+      onUpload(file);
+    }, 140);
   };
   const icon =
     state === "success" ? (
@@ -77,6 +89,18 @@ export function NotesUploadArea({ onUpload }: NotesUploadAreaProps) {
       >
         {message}
       </p>
+      {state === "uploading" && (
+        <div
+          aria-label={`${progress}% uploaded`}
+          aria-valuemax={100}
+          aria-valuemin={0}
+          aria-valuenow={progress}
+          className="mx-auto mt-5 h-2 w-full max-w-md overflow-hidden rounded-full bg-surface-muted"
+          role="progressbar"
+        >
+          <div className={`h-full rounded-full bg-primary transition-all duration-150 ${progressClasses[progress / 20]}`} />
+        </div>
+      )}
       <Button
         className="mt-6 px-5 py-3"
         href="#upload-heading"

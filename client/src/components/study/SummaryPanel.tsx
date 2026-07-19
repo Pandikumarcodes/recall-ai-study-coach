@@ -1,5 +1,6 @@
 import { ArrowRight, BrainCircuit, ListChecks } from "lucide-react";
 import { Button } from "../ui/Button";
+import { studySummary } from "../../mocks/summary";
 export function SummaryPanel() {
   return (
     <section className="grid gap-5 lg:grid-cols-[1.3fr_0.7fr]">
@@ -8,11 +9,7 @@ export function SummaryPanel() {
           AI Generated Summary
         </h2>
         <p className="mt-4 leading-7 text-text-secondary">
-          Electric fields describe the force that a charged object would exert
-          on other charges around it. Electric potential measures the energy
-          available to move a charge through that field. Together, they provide
-          a powerful model for understanding charge interactions without
-          tracking every force individually.
+          {studySummary.summary}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button href="/app/quiz">
@@ -29,9 +26,7 @@ export function SummaryPanel() {
             <ListChecks className="text-primary" size={19} /> Key takeaways
           </h2>
           <ul className="mt-4 space-y-3 text-sm leading-6 text-text-secondary">
-            <li>• Field strength depends on charge and distance.</li>
-            <li>• Potential is energy per unit charge.</li>
-            <li>• Equipotential lines never intersect.</li>
+            {studySummary.takeaways.map((takeaway) => <li key={takeaway}>• {takeaway}</li>)}
           </ul>
         </article>
         <article className="rounded-2xl border border-border bg-surface p-5 shadow-card">
@@ -40,12 +35,7 @@ export function SummaryPanel() {
             concepts
           </h2>
           <div className="mt-4 flex flex-wrap gap-2">
-            {[
-              "Coulomb's law",
-              "Electric field",
-              "Potential difference",
-              "Equipotential",
-            ].map((concept) => (
+            {studySummary.concepts.map((concept) => (
               <span
                 className="rounded-full bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary"
                 key={concept}

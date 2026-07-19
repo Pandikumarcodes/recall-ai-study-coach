@@ -7,29 +7,11 @@ import { NotesUploadArea } from "../../components/notes/NotesUploadArea";
 import { EmptyState } from "../../components/feedback/EmptyState";
 import { PageContainer } from "../../components/layout/PageContainer";
 import { Button } from "../../components/ui/Button";
-
-const initialNotes: NoteItem[] = [
-  {
-    id: "1",
-    name: "Physics - Electric Fields.pdf",
-    subject: "Physics",
-    uploadedAt: "Today",
-    size: "2.4 MB",
-    status: "Ready",
-  },
-  {
-    id: "2",
-    name: "Cellular Respiration.docx",
-    subject: "Biology",
-    uploadedAt: "Yesterday",
-    size: "840 KB",
-    status: "Processing",
-  },
-];
+import { dashboardMock } from "../../mocks/dashboard";
 
 export function NotesPage() {
   const navigate = useNavigate();
-  const [notes, setNotes] = useState(initialNotes);
+  const [notes, setNotes] = useState<NoteItem[]>(dashboardMock.uploadedNotes);
   const addNote = (file: File) =>
     setNotes((currentNotes) => [
       {
@@ -58,7 +40,7 @@ export function NotesPage() {
             Upload PDFs, Word documents, or text files. Recall will prepare them
             for your next study session.
           </p>
-          <Button className="mt-5" href="/app/study">
+          <Button className="mt-5" href="/app/processing">
             Generate Study Materials
           </Button>
         </header>
