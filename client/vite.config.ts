@@ -4,4 +4,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    warmup: {
+      clientFiles: ["./src/main.tsx", "./src/index.css", "./src/App.tsx"],
+    },
+  },
 });

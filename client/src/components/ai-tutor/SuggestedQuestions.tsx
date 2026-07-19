@@ -12,7 +12,7 @@ export function SuggestedQuestions({ onSelect }: SuggestedQuestionsProps) {
   return (
     <section aria-label="Suggested questions" className="mt-7">
       <p className="text-sm font-semibold text-text-primary">
-        Suggested questions
+        Suggested questions Suggested questions
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {questions.map((question) => (

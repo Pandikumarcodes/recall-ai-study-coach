@@ -1,12 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { FlashcardPanel } from "../components/study/FlashcardPanel";
-import { KnowledgeMapPanel } from "../components/study/KnowledgeMapPanel";
-import { QuizPanel } from "../components/study/QuizPanel";
-import { StudyHeader } from "../components/study/StudyHeader";
-import { StudyTabs } from "../components/study/StudyTabs";
-import { SummaryPanel } from "../components/study/SummaryPanel";
-import { PageContainer } from "../components/layout/PageContainer";
+import { FlashcardPanel } from "../../components/study/FlashcardPanel";
+import { KnowledgeMapPanel } from "../../components/study/KnowledgeMapPanel";
+import { QuizPanel } from "../../components/study/QuizPanel";
+import { StudyHeader } from "../../components/study/StudyHeader";
+import { StudyTabs } from "../../components/study/StudyTabs";
+import { SummaryPanel } from "../../components/study/SummaryPanel";
+import { PageContainer } from "../../components/layout/PageContainer";
 type StudyTab = "summary" | "flashcards" | "quiz" | "knowledge-map";
 export function StudyPage() {
   const [activeTab, setActiveTab] = useState<StudyTab>("summary");

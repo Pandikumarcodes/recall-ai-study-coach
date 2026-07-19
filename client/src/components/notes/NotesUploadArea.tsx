@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
-import { CheckCircle2, FileUp, LoaderCircle, UploadCloud } from "lucide-react";
+import { CheckCircle2, FileUp, UploadCloud } from "lucide-react";
 import { Button } from "../ui/Button";
 
-type UploadState = "idle" | "dragging" | "uploading" | "success" | "error";
+type UploadState = "idle" | "dragging" | "success" | "error";
 interface NotesUploadAreaProps {
   onUpload: (file: File) => void;
 }
@@ -27,18 +27,12 @@ export function NotesUploadArea({ onUpload }: NotesUploadAreaProps) {
       setMessage("Choose a PDF, DOCX, or TXT file no larger than 10 MB.");
       return;
     }
-    setState("uploading");
-    setMessage(`Uploading ${file.name}…`);
-    window.setTimeout(() => {
-      setState("success");
-      setMessage(`${file.name} is ready for AI processing.`);
-      onUpload(file);
-    }, 650);
+    setState("success");
+    setMessage(`${file.name} is ready for AI processing.`);
+    onUpload(file);
   };
   const icon =
-    state === "uploading" ? (
-      <LoaderCircle className="animate-spin" size={26} />
-    ) : state === "success" ? (
+    state === "success" ? (
       <CheckCircle2 size={26} />
     ) : (
       <UploadCloud size={26} />

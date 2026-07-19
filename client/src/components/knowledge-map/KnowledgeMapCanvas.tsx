@@ -84,7 +84,9 @@ interface Props {
 }
 export function KnowledgeMapCanvas({ onSelect }: Props) {
   const [flowNodes] = useState(nodes);
-  const [flowInstance, setFlowInstance] = useState<ReactFlowInstance | null>(null);
+  const [flowInstance, setFlowInstance] = useState<ReactFlowInstance | null>(
+    null,
+  );
   const onNodeClick = useCallback(
     (_: unknown, node: Node) =>
       onSelect({
@@ -96,10 +98,14 @@ export function KnowledgeMapCanvas({ onSelect }: Props) {
   );
   useEffect(() => {
     if (!flowInstance) return;
-    const fitGraph = () => flowInstance.fitView({ padding: 0.2, duration: 200, maxZoom: 1 });
+    const fitGraph = () =>
+      flowInstance.fitView({ padding: 0.2, duration: 200, maxZoom: 1 });
     const animationFrame = window.requestAnimationFrame(fitGraph);
     window.addEventListener("resize", fitGraph);
-    return () => { window.cancelAnimationFrame(animationFrame); window.removeEventListener("resize", fitGraph); };
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", fitGraph);
+    };
   }, [flowInstance]);
   return (
     <div className="h-[24rem] min-w-0 w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-card sm:h-[32rem]">

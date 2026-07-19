@@ -7,11 +7,11 @@ import {
   PlayCircle,
   Sparkles,
 } from "lucide-react";
-import { AchievementGallery } from "../components/profile/AchievementGallery";
-import { ProfileHeader } from "../components/profile/ProfileHeader";
-import { ProfileStats } from "../components/profile/ProfileStats";
-import { PageContainer } from "../components/layout/PageContainer";
-import { Button } from "../components/ui/Button";
+import { AchievementGallery } from "../../components/profile/AchievementGallery";
+import { ProfileHeader } from "../../components/profile/ProfileHeader";
+import { ProfileStats } from "../../components/profile/ProfileStats";
+import { PageContainer } from "../../components/layout/PageContainer";
+import { Button } from "../../components/ui/Button";
 const activity = [
   {
     icon: FileUp,

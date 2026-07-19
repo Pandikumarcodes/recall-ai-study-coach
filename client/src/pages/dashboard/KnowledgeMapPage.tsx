@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { KnowledgeHeader } from "../components/knowledge-map/KnowledgeHeader";
-import { KnowledgeMapCanvas } from "../components/knowledge-map/KnowledgeMapCanvas";
-import { KnowledgeSidebar } from "../components/knowledge-map/KnowledgeSidebar";
-import { KnowledgeStats } from "../components/knowledge-map/KnowledgeStats";
-import { PageContainer } from "../components/layout/PageContainer";
+import { KnowledgeHeader } from "../../components/knowledge-map/KnowledgeHeader";
+import { KnowledgeMapCanvas } from "../../components/knowledge-map/KnowledgeMapCanvas";
+import { KnowledgeSidebar } from "../../components/knowledge-map/KnowledgeSidebar";
+import { KnowledgeStats } from "../../components/knowledge-map/KnowledgeStats";
+import { PageContainer } from "../../components/layout/PageContainer";
 interface Selection {
   title: string;
   description: string;

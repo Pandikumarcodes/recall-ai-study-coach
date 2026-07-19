@@ -1,20 +1,14 @@
 import { useEffect, useRef } from "react";
 import { ChatMessage, type TutorMessage } from "./ChatMessage";
-import { TypingIndicator } from "./TypingIndicator";
 interface ChatWindowProps {
   messages: TutorMessage[];
-  thinking: boolean;
   onRegenerate: () => void;
 }
-export function ChatWindow({
-  messages,
-  thinking,
-  onRegenerate,
-}: ChatWindowProps) {
+export function ChatWindow({ messages, onRegenerate }: ChatWindowProps) {
   const endRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, thinking]);
+  }, [messages]);
   return (
     <section
       aria-label="Conversation"
@@ -28,7 +22,6 @@ export function ChatWindow({
             onRegenerate={onRegenerate}
           />
         ))}
-        {thinking && <TypingIndicator />}
         <div ref={endRef} />
       </div>
     </section>

@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Achievements } from "../components/revision/Achievements";
-import { RevisionCalendar } from "../components/revision/RevisionCalendar";
-import { RevisionHeader } from "../components/revision/RevisionHeader";
-import { RevisionStats } from "../components/revision/RevisionStats";
-import { RevisionTimeline } from "../components/revision/RevisionTimeline";
-import type { RevisionItem } from "../components/revision/RevisionCard";
-import { PageContainer } from "../components/layout/PageContainer";
+import { Achievements } from "../../components/revision/Achievements";
+import { RevisionCalendar } from "../../components/revision/RevisionCalendar";
+import { RevisionHeader } from "../../components/revision/RevisionHeader";
+import { RevisionStats } from "../../components/revision/RevisionStats";
+import { RevisionTimeline } from "../../components/revision/RevisionTimeline";
+import type { RevisionItem } from "../../components/revision/RevisionCard";
+import { PageContainer } from "../../components/layout/PageContainer";
 const initialItems: RevisionItem[] = [
   {
     id: "1",

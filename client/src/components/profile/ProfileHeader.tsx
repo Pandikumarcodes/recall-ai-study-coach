@@ -28,7 +28,6 @@ export function ProfileHeader() {
   const [toast, setToast] = useState("");
   const notify = (message: string) => {
     setToast(message);
-    window.setTimeout(() => setToast(""), 2500);
   };
   const save = () => {
     localStorage.setItem(storageKey, JSON.stringify(draft));

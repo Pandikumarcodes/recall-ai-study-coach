@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Bell, BrainCircuit, CircleHelp, Globe2, Palette, ShieldCheck, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
-import { Toast } from "../components/ui/Toast";
+import { Toast } from "../../components/ui/Toast";
 import {
   SettingOption,
   SettingSwitch,
-} from "../components/settings/SettingControl";
-import { SettingsSection } from "../components/settings/SettingsSection";
-import { PageContainer } from "../components/layout/PageContainer";
+} from "../../components/settings/SettingControl";
+import { SettingsSection } from "../../components/settings/SettingsSection";
+import { PageContainer } from "../../components/layout/PageContainer";
 type Preferences = {
   accent: string;
   aiLength: string;
@@ -60,7 +60,6 @@ export function SettingsPage() {
     setSettings(next);
     localStorage.setItem(storageKey, JSON.stringify(next));
     setToast("Settings saved");
-    window.setTimeout(() => setToast(""), 1800);
   };
   const choose = (key: keyof Preferences, value: string | number) =>
     save({ ...settings, [key]: value });

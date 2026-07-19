@@ -36,7 +36,7 @@ export function Navbar() {
             GitHub
           </a>
         </div>
-        <Button className="px-3.5 py-2 sm:px-4 sm:py-2.5" href="#how-it-works">
+        <Button className="px-3.5 py-2 sm:px-4 sm:py-2.5" href="/app/dashboard">
           Try Recall <ArrowUpRight size={16} />
         </Button>
       </nav>

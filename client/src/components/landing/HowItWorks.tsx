@@ -66,7 +66,7 @@ export function HowItWorks() {
         </div>
 
         <Button
-          href="#how-it-works"
+          href="/app/dashboard"
           className="px-5 py-3 shadow-lg shadow-primary/25 hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300"
         >
           Start learning with Recall

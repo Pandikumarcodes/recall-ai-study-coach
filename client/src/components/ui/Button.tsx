@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 
@@ -19,18 +20,30 @@ export function Button({
   children,
   variant = "primary",
   className,
+  href,
   ...props
 }: ButtonProps) {
+  const buttonClassName = [
+    "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2",
+    variantClasses[variant],
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  if (href?.startsWith("/")) {
+    return (
+      <Link {...props} className={buttonClassName} to={href}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <a
       {...props}
-      className={[
-        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2",
-        variantClasses[variant],
-        className,
-      ]
-        .filter(Boolean)
-        .join(" ")}
+      href={href}
+      className={buttonClassName}
     >
       {children}
     </a>

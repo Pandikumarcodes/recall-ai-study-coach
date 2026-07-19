@@ -1,46 +1,27 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AppLayout } from "./components/layout/AppLayout";
-import { DashboardHome } from "./pages/DashboardHome";
-import { Features } from "./components/landing/Features";
-import { Footer } from "./components/landing/Footer";
-import { Hero } from "./components/landing/Hero";
-import { HowItWorks } from "./components/landing/HowItWorks";
-import { Navbar } from "./components/landing/Navbar";
-import { NotesPage } from "./pages/NotesPage";
-import { ProcessingPage } from "./pages/ProcessingPage";
-import { AITutorPage } from "./pages/AITutorPage";
-import { StudyPage } from "./pages/StudyPage";
-import { RevisionPlanPage } from "./pages/RevisionPlanPage";
-import { KnowledgeMapPage } from "./pages/KnowledgeMapPage";
-import { ProfilePage } from "./pages/ProfilePage";
-import { SettingsPage } from "./pages/SettingsPage";
-import { QuizPanel } from "./components/study/QuizPanel";
+import { LandingPage } from "./pages/landing/LandingPage";
+import { DashboardPage } from "./pages/dashboard/DashboardPage";
+import { NotesPage } from "./pages/dashboard/NotesPage";
+import { AITutorPage } from "./pages/dashboard/AITutorPage";
+import { StudyPage } from "./pages/dashboard/StudyPage";
+import { RevisionPlanPage } from "./pages/dashboard/RevisionPlanPage";
+import { KnowledgeMapPage } from "./pages/dashboard/KnowledgeMapPage";
+import { ProfilePage } from "./pages/dashboard/ProfilePage";
+import { SettingsPage } from "./pages/dashboard/SettingsPage";
+import { QuizPage } from "./pages/dashboard/QuizPage";
 
 export default function App() {
   return (
     <Routes>
-      <Route
-        element={
-          <>
-            <Navbar />
-            <main>
-              <Hero />
-              <Features />
-              <HowItWorks />
-            </main>
-            <Footer />
-          </>
-        }
-        path="/"
-      />
+      <Route element={<LandingPage />} path="/" />
       <Route element={<AppLayout />} path="/app">
         <Route index element={<Navigate replace to="dashboard" />} />
-        <Route element={<DashboardHome />} path="dashboard" />
+        <Route element={<DashboardPage />} path="dashboard" />
         <Route element={<NotesPage />} path="notes" />
-        <Route element={<ProcessingPage />} path="processing" />
         <Route element={<AITutorPage />} path="ai-tutor" />
         <Route element={<StudyPage />} path="study" />
-        <Route element={<QuizPanel />} path="quiz" />
+        <Route element={<QuizPage />} path="quiz" />
         <Route element={<KnowledgeMapPage />} path="knowledge-map" />
         <Route element={<RevisionPlanPage />} path="revision-plan" />
         <Route element={<ProfilePage />} path="profile" />

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Brain, CalendarClock, Map, NotebookPen } from "lucide-react";
 
 const features = [
@@ -48,16 +47,12 @@ export function Features() {
           </p>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => {
+          {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <motion.article
+              <article
                 className="rounded-2xl border border-border bg-white/[0.02] p-6 shadow-card transition-shadow hover:-translate-y-1"
-                initial={{ opacity: 0, y: 10 }}
                 key={feature.title}
-                transition={{ delay: index * 0.06, duration: 0.3 }}
-                viewport={{ once: true }}
-                whileInView={{ opacity: 1, y: 0 }}
               >
                 <span className="grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
                   <Icon size={21} />
@@ -68,7 +63,7 @@ export function Features() {
                 <p className="mt-2 text-sm leading-6 text-text-secondary">
                   {feature.description}
                 </p>
-              </motion.article>
+              </article>
             );
           })}
         </div>
