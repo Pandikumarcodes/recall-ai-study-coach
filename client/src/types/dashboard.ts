@@ -10,8 +10,11 @@ export interface StudyMaterial {
 }
 
 export interface StudyOverviewItem {
+  chartHeights: string[];
   icon: LucideIcon;
   label: string;
   supportingText: string;
+  trend: string;
+  trendTone: "primary" | "success" | "warning";
   value: string;
 }

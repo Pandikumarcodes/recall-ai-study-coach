@@ -32,7 +32,7 @@ export function QuizPanel() {
           </button>
         ))}
       </div>
-      <Button className="mt-6" href="#quiz">
+      <Button className="mt-6" href="/app/revision-plan">
         Next Question
       </Button>
     </section>

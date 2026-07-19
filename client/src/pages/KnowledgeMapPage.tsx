@@ -21,7 +21,7 @@ export function KnowledgeMapPage() {
       >
         <KnowledgeHeader />
         <KnowledgeStats />
-        <div className="mt-12 grid gap-5 xl:grid-cols-[1fr_20rem]">
+        <div className="mt-12 grid min-w-0 gap-5 xl:grid-cols-[minmax(0,1fr)_20rem]">
           <KnowledgeMapCanvas onSelect={setSelection} />
           <KnowledgeSidebar node={selection} />
         </div>

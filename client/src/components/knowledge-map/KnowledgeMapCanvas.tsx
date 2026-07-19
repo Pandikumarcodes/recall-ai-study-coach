@@ -1,10 +1,11 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactFlow, {
   Background,
   Controls,
   MiniMap,
   type Edge,
   type Node,
+  type ReactFlowInstance,
 } from "reactflow";
 import "reactflow/dist/style.css";
 import { KnowledgeNode } from "./KnowledgeNode";
@@ -83,6 +84,7 @@ interface Props {
 }
 export function KnowledgeMapCanvas({ onSelect }: Props) {
   const [flowNodes] = useState(nodes);
+  const [flowInstance, setFlowInstance] = useState<ReactFlowInstance | null>(null);
   const onNodeClick = useCallback(
     (_: unknown, node: Node) =>
       onSelect({
@@ -92,14 +94,24 @@ export function KnowledgeMapCanvas({ onSelect }: Props) {
       }),
     [onSelect],
   );
+  useEffect(() => {
+    if (!flowInstance) return;
+    const fitGraph = () => flowInstance.fitView({ padding: 0.2, duration: 200, maxZoom: 1 });
+    const animationFrame = window.requestAnimationFrame(fitGraph);
+    window.addEventListener("resize", fitGraph);
+    return () => { window.cancelAnimationFrame(animationFrame); window.removeEventListener("resize", fitGraph); };
+  }, [flowInstance]);
   return (
-    <div className="h-[32rem] overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
+    <div className="h-[24rem] min-w-0 w-full overflow-hidden rounded-2xl border border-border bg-surface shadow-card sm:h-[32rem]">
       <ReactFlow
+        className="h-full w-full"
         edges={edges}
         fitView
+        fitViewOptions={{ padding: 0.2, maxZoom: 1 }}
         nodes={flowNodes}
         nodeTypes={{ knowledge: KnowledgeNode }}
         onNodeClick={onNodeClick}
+        onInit={setFlowInstance}
       >
         <Background color="var(--color-border)" gap={18} />
         <Controls />

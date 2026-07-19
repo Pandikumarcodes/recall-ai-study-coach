@@ -15,10 +15,10 @@ export function SummaryPanel() {
           tracking every force individually.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button href="#quiz">
+          <Button href="/app/quiz">
             Start Quiz <ArrowRight size={16} />
           </Button>
-          <Button href="#flashcards" variant="secondary">
+          <Button href="/app/study" variant="secondary">
             Review Flashcards
           </Button>
         </div>

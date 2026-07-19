@@ -1,0 +1,17 @@
+export function AIHeader() {
+  return (
+    <header>
+      <p className="text-sm font-bold text-primary">AI study companion</p>
+      <h1 className="mt-2 text-3xl font-bold tracking-[-0.04em] text-text-primary sm:text-4xl">
+        AI Tutor
+      </h1>
+      <p className="mt-3 max-w-2xl text-base leading-7 text-text-secondary">
+        Ask questions about your study material and get AI-powered explanations.
+      </p>
+      <p className="mt-5 inline-flex rounded-full bg-surface-muted px-3 py-1.5 text-sm font-semibold text-text-primary">
+        Current material:{" "}
+        <span className="ml-1 text-primary">Electric fields and potential</span>
+      </p>
+    </header>
+  );
+}

@@ -25,7 +25,7 @@ export function Button({
     <a
       {...props}
       className={[
-        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition duration-200 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-2",
         variantClasses[variant],
         className,
       ]

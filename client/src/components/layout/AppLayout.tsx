@@ -1,11 +1,12 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { TopNavigation } from "./TopNavigation";
 
 export function AppLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
 
   const closeSidebar = () => setIsSidebarOpen(false);
   const toggleSidebar = () => setIsSidebarOpen((currentValue) => !currentValue);
@@ -48,7 +49,17 @@ export function AppLayout() {
           onSidebarToggle={toggleSidebar}
         />
         <main id="main-content" tabIndex={-1}>
-          <Outlet />
+          <AnimatePresence mode="wait">
+            <motion.div
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              initial={{ opacity: 0, y: 6 }}
+              key={location.pathname}
+              transition={{ duration: 0.18 }}
+            >
+              <Outlet />
+            </motion.div>
+          </AnimatePresence>
         </main>
       </div>
     </div>

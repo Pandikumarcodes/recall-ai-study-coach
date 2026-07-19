@@ -28,7 +28,7 @@ export function RecentMaterials({ materials }: RecentMaterialsProps) {
         </div>
         <a
           className="text-sm font-semibold text-primary transition hover:text-primary-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          href="#main-content"
+          href="/app/study"
         >
           View all
         </a>

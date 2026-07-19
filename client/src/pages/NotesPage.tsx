@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NoteCard, type NoteItem } from "../components/notes/NoteCard";
 import { NotesUploadArea } from "../components/notes/NotesUploadArea";
 import { EmptyState } from "../components/feedback/EmptyState";
@@ -27,6 +28,7 @@ const initialNotes: NoteItem[] = [
 ];
 
 export function NotesPage() {
+  const navigate = useNavigate();
   const [notes, setNotes] = useState(initialNotes);
   const addNote = (file: File) =>
     setNotes((currentNotes) => [
@@ -87,7 +89,8 @@ export function NotesPage() {
                       currentNotes.filter((item) => item.id !== id),
                     )
                   }
-                  onReupload={() => undefined}
+                  onReupload={() => navigate("/app/processing")}
+                  onView={() => navigate("/app/study")}
                 />
               ))
             ) : (

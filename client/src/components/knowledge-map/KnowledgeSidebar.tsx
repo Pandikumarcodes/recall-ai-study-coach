@@ -37,7 +37,7 @@ export function KnowledgeSidebar({ node }: Props) {
               {" "}
               <BrainCircuit size={16} /> Review Flashcards
             </Button>
-            <Button href="/app/study" variant="secondary">
+            <Button href="/app/quiz" variant="secondary">
               <FileQuestion size={16} /> Start Quiz
             </Button>
           </div>

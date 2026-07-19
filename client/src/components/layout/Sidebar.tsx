@@ -4,16 +4,19 @@ import {
   FileText,
   LayoutDashboard,
   Network,
+  MessageCircle,
   Settings,
 } from "lucide-react";
 import { BrandMark } from "../BrandMark";
 import { NavItem } from "./NavItem";
+import { Link } from "react-router-dom";
 
 const navigationItems = [
   { icon: LayoutDashboard, label: "Dashboard", to: "/app/dashboard" },
   { icon: FileText, label: "Notes", to: "/app/notes" },
   { icon: BrainCircuit, label: "Quiz", to: "/app/quiz" },
   { icon: Network, label: "Knowledge map", to: "/app/knowledge-map" },
+  { icon: MessageCircle, label: "AI Tutor", to: "/app/ai-tutor" },
   { icon: CalendarDays, label: "Revision plan", to: "/app/revision-plan" },
 ];
 
@@ -44,7 +47,11 @@ export function Sidebar({ onNavigate }: SidebarProps) {
 
       <div className="mt-auto border-t border-border pt-4">
         <NavItem icon={Settings} label="Settings" to="/app/settings" />
-        <div className="mt-4 flex items-center gap-3 rounded-xl bg-surface-muted p-3">
+        <Link
+          aria-label="Open student profile"
+          className="mt-4 flex items-center gap-3 rounded-xl bg-surface-muted p-3 transition hover:bg-primary/10"
+          to="/app/profile"
+        >
           <span
             aria-hidden="true"
             className="grid size-9 place-items-center rounded-full bg-primary text-sm font-bold text-text-inverse"
@@ -59,7 +66,7 @@ export function Sidebar({ onNavigate }: SidebarProps) {
               Study workspace
             </p>
           </div>
-        </div>
+        </Link>
       </div>
     </aside>
   );

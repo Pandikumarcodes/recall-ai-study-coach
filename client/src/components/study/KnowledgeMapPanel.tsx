@@ -13,7 +13,7 @@ export function KnowledgeMapPanel() {
         Explore the relationships between concepts from your notes in an
         interactive visual map.
       </p>
-      <Button className="mt-6" href="#knowledge-map">
+      <Button className="mt-6" href="/app/knowledge-map">
         Open Mind Map
       </Button>
     </section>

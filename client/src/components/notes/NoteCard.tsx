@@ -12,10 +12,11 @@ export interface NoteItem {
 interface NoteCardProps {
   note: NoteItem;
   onRemove: (id: string) => void;
+  onView: () => void;
   onReupload: () => void;
 }
 
-export function NoteCard({ note, onRemove, onReupload }: NoteCardProps) {
+export function NoteCard({ note, onRemove, onReupload, onView }: NoteCardProps) {
   return (
     <article className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5 shadow-card transition duration-200 hover:border-primary/20 hover:shadow-card-hover sm:flex-row sm:items-center">
       <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
@@ -40,6 +41,7 @@ export function NoteCard({ note, onRemove, onReupload }: NoteCardProps) {
         <button
           aria-label={`View ${note.name}`}
           className="grid size-9 place-items-center rounded-lg text-text-secondary transition hover:bg-surface-muted hover:text-text-primary focus-visible:outline-2 focus-visible:outline-primary"
+          onClick={onView}
           type="button"
         >
           <Eye size={18} />

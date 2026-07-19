@@ -8,9 +8,12 @@ import { HowItWorks } from "./components/landing/HowItWorks";
 import { Navbar } from "./components/landing/Navbar";
 import { NotesPage } from "./pages/NotesPage";
 import { ProcessingPage } from "./pages/ProcessingPage";
+import { AITutorPage } from "./pages/AITutorPage";
 import { StudyPage } from "./pages/StudyPage";
 import { RevisionPlanPage } from "./pages/RevisionPlanPage";
 import { KnowledgeMapPage } from "./pages/KnowledgeMapPage";
+import { ProfilePage } from "./pages/ProfilePage";
+import { SettingsPage } from "./pages/SettingsPage";
 import { QuizPanel } from "./components/study/QuizPanel";
 
 export default function App() {
@@ -35,11 +38,13 @@ export default function App() {
         <Route element={<DashboardHome />} path="dashboard" />
         <Route element={<NotesPage />} path="notes" />
         <Route element={<ProcessingPage />} path="processing" />
+        <Route element={<AITutorPage />} path="ai-tutor" />
         <Route element={<StudyPage />} path="study" />
         <Route element={<QuizPanel />} path="quiz" />
         <Route element={<KnowledgeMapPage />} path="knowledge-map" />
         <Route element={<RevisionPlanPage />} path="revision-plan" />
-        <Route element={<DashboardHome />} path="settings" />
+        <Route element={<ProfilePage />} path="profile" />
+        <Route element={<SettingsPage />} path="settings" />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -12,7 +12,7 @@ export function EmptyState({
   title,
 }: EmptyStateProps) {
   return (
-    <div className="rounded-2xl border border-dashed border-border bg-surface p-8 text-center">
+    <div className="rounded-2xl border border-dashed border-border bg-surface p-8 text-center shadow-card sm:p-10">
       <span className="mx-auto grid size-11 place-items-center rounded-xl bg-primary/10 text-primary">
         <Icon aria-hidden="true" size={21} />
       </span>

@@ -17,7 +17,7 @@ export function StudyMaterialCard({ material }: StudyMaterialCardProps) {
         <a
           aria-label={`Open ${material.title}`}
           className="grid size-8 place-items-center rounded-lg text-text-secondary transition hover:bg-surface-muted hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          href="#main-content"
+          href="/app/study"
         >
           <ArrowUpRight aria-hidden="true" size={18} />
         </a>

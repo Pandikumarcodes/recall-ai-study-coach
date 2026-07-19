@@ -53,10 +53,7 @@ export function RevisionCard({ item, onComplete }: Props) {
         </p>
       </div>
       <div className="mt-5 flex flex-wrap gap-2">
-        <Button href="#revision">Review Now</Button>
-        <Button href="#revision" variant="secondary">
-          Skip
-        </Button>
+        <Button href="/app/study">Review Now</Button>
         <button
           className="rounded-xl px-3 py-2 text-sm font-semibold text-text-secondary transition hover:bg-surface-muted"
           onClick={() => onComplete(item.id)}
