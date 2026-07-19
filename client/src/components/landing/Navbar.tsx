@@ -1,4 +1,4 @@
-import { ArrowUpRight, GitBranch } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { BrandMark } from "../BrandMark";
 import { Button } from "../ui/Button";
 
@@ -25,16 +25,6 @@ export function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            aria-label="View Recall on GitHub"
-            className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition hover:text-text-primary"
-            href="https://github.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <GitBranch size={17} />
-            GitHub
-          </a>
         </div>
         <Button className="px-3.5 py-2 sm:px-4 sm:py-2.5" href="/app/dashboard">
           Try Recall <ArrowUpRight size={16} />
