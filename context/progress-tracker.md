@@ -18,6 +18,12 @@
 
 ---
 
+## Server MVP
+
+File upload, document text extraction, MongoDB persistence, OpenAI study generation, and tutor chat complete.
+
+---
+
 ## Landing Page
 
 ✅ Complete
